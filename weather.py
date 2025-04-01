@@ -1,11 +1,11 @@
-from http.client import responses
-
 import requests
-import json
 
+def weather_finder(city = None, wlat = 200, wlon = 200):
+    if wlat != 200 and wlon !=200:
+        city = find_city(wlat, wlon)
 
-def weather_finder(city):
     url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&exclude=current&lang=ru&appid=79d1ca96933b0328e1c7e3e7a26cb347'
+    
     try:
         responce = requests.get(url)
         data = responce.json()

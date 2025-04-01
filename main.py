@@ -12,6 +12,8 @@ def start(message):
         message,
         f"Hello {message.from_user.first_name}, my name is {bot.get_me().first_name}",
     )
+    print(f"New user: {message.from_user.first_name}({message.from_user.id})")
+    # База данных с никнеймами и айди всех пользователей
     main(message)
 
 
@@ -52,9 +54,9 @@ def activity(message):
 def location(message):
     lat = message.location.latitude
     lon = message.location.longitude
-    city_name = find_city(lat, lon)
     if message.location is not None and user_states["user_id"] == "waiting_for_city":
-        bot.reply_to(message, weather_finder(city_name))
+        bot.reply_to(message, weather_finder(wlat=lat, wlon=lon))
+        print(lat, lon)
 
 
 bot.infinity_polling()
