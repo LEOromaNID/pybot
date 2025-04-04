@@ -1,6 +1,6 @@
 import requests
 
-APIKEY = "79d1ca96933b0328e1c7e3e7a26cb347"
+APIKEY = "000000000000000000d1"
 
 
 def weather_finder(city=None, wlat=200, wlon=200):
