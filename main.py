@@ -1,6 +1,6 @@
 import telebot
 from telebot import types
-from weather import weather_finder, find_city
+from weather import weather_finder
 
 bot = telebot.TeleBot("7914071941:AAFIbKc4SNmmdFn-UBLd3bpIA3HlOuzpA68")
 user_states = {}
@@ -54,9 +54,8 @@ def activity(message):
 def location(message):
     lat = message.location.latitude
     lon = message.location.longitude
-    if message.location is not None and user_states["user_id"] == "waiting_for_city":
+    if message.location is not None and "user_id" in user_states and user_states["user_id"] == "waiting_for_city":
         bot.reply_to(message, weather_finder(wlat=lat, wlon=lon))
-        print(lat, lon)
 
 
 bot.infinity_polling()
