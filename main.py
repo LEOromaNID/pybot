@@ -2,7 +2,7 @@ import telebot
 from telebot import types
 from weather import weather_finder
 
-BOT_KEY = ""00000000:AAFJHFGkjhhfkDJHKF23DFH""
+BOT_KEY = "00000000:AAFJHFGkjhhfkDJHKF23DFH"
 bot = telebot.TeleBot(BOT_KEY)
 user_states = {}
 
